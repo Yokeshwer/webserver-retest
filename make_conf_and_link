@@ -1,0 +1,6 @@
+cd /etc/nginx/sites-available/
+sudo cp /home/ubuntu/webserver/file.conf /etc/nginx/sites-available/
+sudo ln -s /etc/nginx/sites-available/file.conf /etc/nginx/sites-enabled/
+sudo nginx -t
+sudo systemctl reload nginx
+sudo systemctl restart nginx
