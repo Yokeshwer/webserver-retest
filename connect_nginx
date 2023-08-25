@@ -1,0 +1,8 @@
+cd /var/www
+sudo mkdir mallow
+sudo chown -R www-data:www-data mallow
+sudo chmod 777 mallow
+cd mallow
+sudo cp /home/ubuntu/webserver/index.html /var/www/mallow
+sudo chown -R www-data:www-data index.html
+sudo chmod 777 index.html
