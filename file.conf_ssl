@@ -1,0 +1,30 @@
+server {
+ listen 80;
+ server_name websers.chickenkiller.com;
+ root /var/www/mallow;
+ index index.html;
+}server {
+ server_name webservers.chickenkiller.com;
+ root /var/www/mallow;
+ index index.html;
+
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/webservers.chickenkiller.com/fullchain.pem>
+    ssl_certificate_key /etc/letsencrypt/live/webservers.chickenkiller.com/privkey.p>
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+
+server {
+    if ($host = webservers.chickenkiller.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+ listen 80;
+ server_name webservers.chickenkiller.com;
+    return 404; # managed by Certbot
+
+
+}
